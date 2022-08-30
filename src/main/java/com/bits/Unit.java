@@ -4,6 +4,9 @@
  */
 package com.bits;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  *
  * @author henock
@@ -23,6 +26,23 @@ public class Unit {
             String error = String.format("The code %s is invalid.", code);
             throw new IllegalArgumentException(error);
         }
+    }
+    
+    public static ArrayList<Unit> getUnits() {
+        Unit[] units = {
+            new Unit("kg", "Kilogram"),
+            new Unit("l", "Liter"),
+            new Unit("g", "Gram"),
+            new Unit("m", "Meter"),
+            new Unit("ea", "Each")
+        };
+        return new ArrayList<>(Arrays.asList(units));
+    }
+    
+    public static Unit getByCode(String code) {
+        return getUnits().stream().filter(
+            (Unit unit) -> code.equals(unit.getCode())
+        ).findFirst().orElse(null);
     }
 
     /**

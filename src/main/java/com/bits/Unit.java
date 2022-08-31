@@ -11,21 +11,16 @@ import java.util.Arrays;
  *
  * @author henock
  */
-public class Unit {
-    private String code;
-    private String name;
-    
+public class Unit extends Lookup {
     public Unit() {
     }
     
     public Unit(String code, String name) {
-        if (Util.validateLength(code, 3)) {
-            this.code = code;
-            this.name = name;
-        } else {
-            String error = String.format("The code %s is invalid.", code);
-            throw new IllegalArgumentException(error);
-        }
+        super(code, name);
+    }
+    
+    public static Unit getByCode(String code) {
+        return (Unit) Lookup.getByCode(Unit.getUnits(), code);
     }
     
     public static ArrayList<Unit> getUnits() {
@@ -38,45 +33,4 @@ public class Unit {
         };
         return new ArrayList<>(Arrays.asList(units));
     }
-    
-    public static Unit getByCode(String code) {
-        return getUnits().stream().filter(
-            (Unit unit) -> code.equals(unit.getCode())
-        ).findFirst().orElse(null);
-    }
-
-    /**
-     * @return the code
-     */
-    public String getCode() {
-        return code;
-    }
-
-    /**
-     * @param code the code to set
-     */
-    public void setCode(String code) {
-        if (Util.validateLength(code, 3)) {
-            this.code = code;
-        } else {
-            String error = String.format("The code %s is invalid.", code);
-            throw new IllegalArgumentException(error);
-        }
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    
 }

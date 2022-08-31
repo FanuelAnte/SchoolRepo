@@ -44,5 +44,12 @@ public class UnitTest {
         );
         assertEquals("The code abcd is invalid.", exception.getMessage());
     }
+    
+    @Test
+    public void testGetByCodeWithValidCode() {
+        Unit unit = Unit.getByCode("kg");
+        assertEquals(unit.getCode(), "kg");
+        assertEquals(unit.getName(), "Kilogram");
+    }
 
 }

@@ -4,57 +4,33 @@
  */
 package com.bits;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  *
  * @author henock
  */
-public class ProductGroup {
-    private String code;
-    private String name;
-    
+public class ProductGroup extends Lookup {
     public ProductGroup() {
     }
     
     public ProductGroup(String code, String name) {
-        if (Util.validateLength(code, 3)) {
-            this.code = code;
-            this.name = name;
-        } else {
-            String error = String.format("The code %s is invalid.", code);
-            throw new IllegalArgumentException(error);
-        }
+        super(code, name);
     }
 
-    /**
-     * @return the code
-     */
-    public String getCode() {
-        return code;
+    public static ArrayList<ProductGroup> getProductGroups() {
+        ProductGroup[] groups = {
+            new ProductGroup("SWT", "Sweets"),
+            new ProductGroup("SDR", "Soft Drinks"),
+            new ProductGroup("ALC", "Alcoholic Drinks"),
+            new ProductGroup("ELE", "Electronics"),
+            new ProductGroup("FUR", "Furniture")
+        };
+        return new ArrayList<>(Arrays.asList(groups));
     }
-
-    /**
-     * @param code the code to set
-     */
-    public void setCode(String code) {
-        if (Util.validateLength(code, 3)) {
-            this.code = code;
-        } else {
-            String error = String.format("The code %s is invalid.", code);
-            throw new IllegalArgumentException(error);
-        }
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    
+    public static ProductGroup getByCode(String code) {
+        return (ProductGroup) Lookup.getByCode(ProductGroup.getProductGroups(), code);
     }
 }

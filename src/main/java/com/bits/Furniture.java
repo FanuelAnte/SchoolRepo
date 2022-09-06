@@ -13,7 +13,7 @@ public class Furniture extends Product {
         CHAIR,
         COUCH,
         DESK,
-        CABINET,
+        CABINET
     }
     private float length;
     private float width;
@@ -45,6 +45,7 @@ public class Furniture extends Product {
         this.length = length;
         this.width = width;
         this.height = height;
+        this.type = type;
     }
 
     /**

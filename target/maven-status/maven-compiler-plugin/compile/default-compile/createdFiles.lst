@@ -1,3 +1,14 @@
-com/bits/Unit.class
-com/bits/Inventory.class
+com/bits/Lookup.class
 com/bits/Util.class
+com/bits/ui/UnitInternalFrame$1.class
+com/bits/Product.class
+com/bits/ProductGroup.class
+com/bits/ui/MainFrame$3.class
+com/bits/ui/MainFrame$2.class
+com/bits/Electronics$ElectronicsType.class
+com/bits/Electronics.class
+com/bits/ui/UnitTableModel.class
+com/bits/ui/MainFrame.class
+com/bits/ui/MainFrame$1.class
+com/bits/Unit.class
+com/bits/ui/UnitInternalFrame.class

@@ -1,3 +1,9 @@
-/home/henock/NetBeansProjects/inventory/src/main/java/com/bits/Inventory.java
-/home/henock/NetBeansProjects/inventory/src/main/java/com/bits/Unit.java
-/home/henock/NetBeansProjects/inventory/src/main/java/com/bits/Util.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/ui/UnitTableModel.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/Unit.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/Product.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/Util.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/Electronics.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/ProductGroup.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/ui/MainFrame.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/ui/UnitInternalFrame.java
+/Users/henock/projects/java/inventory/src/main/java/com/bits/Lookup.java

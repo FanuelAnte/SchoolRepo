@@ -4,21 +4,21 @@
  */
 package com.bits.ui;
 
+import com.bits.ProductGroup;
 import com.bits.Unit;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author henock
+ * @author user
  */
-public class UnitInternalFrame extends javax.swing.JInternalFrame {
-    UnitTableModel model;
-    
+public class ProductGroupInternalFrame extends javax.swing.JInternalFrame {
+    ProductGroupTableModel model;
     /**
-     * Creates new form NewJInternalFrame
+     * Creates new form ProductGroupInternalFrame
      */
-    public UnitInternalFrame() {
-        model = new UnitTableModel();
+    public ProductGroupInternalFrame() {
+        model = new ProductGroupTableModel();
         initComponents();
     }
 
@@ -32,26 +32,26 @@ public class UnitInternalFrame extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        codeField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        codeField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
         saveBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        unitTable = new javax.swing.JTable();
+        prodGroupTable = new javax.swing.JTable();
 
         setClosable(true);
-        setIconifiable(true);
-        setTitle("Units");
+        setResizable(true);
+        setTitle("Product Groups");
 
         jLabel1.setText("Code");
+
+        jLabel2.setText("Name");
 
         codeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codeFieldActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Name");
 
         saveBtn.setText("Save");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -60,64 +60,65 @@ public class UnitInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        unitTable.setModel(model);
-        jScrollPane1.setViewportView(unitTable);
+        prodGroupTable.setModel(model);
+        prodGroupTable.setToolTipText("");
+        jScrollPane1.setViewportView(prodGroupTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(codeField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(codeField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                             .addComponent(nameField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saveBtn))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saveBtn))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void codeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codeFieldActionPerformed
+
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         if (codeField.getText().equals("") || nameField.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Both code and name are required!");
         } else {
-            Unit unit = new Unit(codeField.getText(), nameField.getText());
-            model.units.add(unit);
+            ProductGroup productGroup = new ProductGroup(codeField.getText(), nameField.getText());
+            model.productGroups.add(productGroup);
             model.fireTableDataChanged();
             codeField.setText("");
             nameField.setText("");
         }
     }//GEN-LAST:event_saveBtnActionPerformed
-
-    private void codeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codeFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -126,7 +127,7 @@ public class UnitInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameField;
+    private javax.swing.JTable prodGroupTable;
     private javax.swing.JButton saveBtn;
-    private javax.swing.JTable unitTable;
     // End of variables declaration//GEN-END:variables
 }
